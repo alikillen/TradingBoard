@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_01_111739) do
+ActiveRecord::Schema.define(version: 2020_08_02_033925) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,6 +46,7 @@ ActiveRecord::Schema.define(version: 2020_08_01_111739) do
     t.integer "price_type"
     t.integer "price"
     t.integer "category"
+    t.string "photo"
     t.index ["buyer_id"], name: "index_listings_on_buyer_id"
     t.index ["seller_id"], name: "index_listings_on_seller_id"
   end

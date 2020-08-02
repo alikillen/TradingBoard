@@ -10,6 +10,8 @@
 
 **Deployed Site Link:**
 
+https://tradingboard-marketplace.herokuapp.com/
+
 **Github Repo (accessible to educators):**
 
 **Trello Board link:** https://trello.com/invite/b/V72Cv224/b85f321b09dcfe2c2f09eddc1926a3d2/t2a2-marketplace-app

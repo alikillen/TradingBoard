@@ -4,3 +4,20 @@
 
 <%= link_to 'Edit', edit_listing_path(@listing) %> |
 <%= link_to 'Back', listings_path %>
+
+<%# show a single listing %>
+
+<h1>Listings</h1>
+
+<% for listing in @listings %>
+<div class="card">
+  <%= image_tag listing.photo if listing.photo.attached? %>
+  <p><%= listing.title %></p>
+  <p><%= listing.description%></p>
+  <p><%= listing.category%></p>
+  <p><%= "#{listing.price_type}, #{listing.price}" %></p>
+  <p><%= listing.seller_id %></p>
+  <p><%= listing.created_at %></p>
+  <%= link_to "edit", edit_listing_path(listing.id) %>
+</div>
+<% end %>

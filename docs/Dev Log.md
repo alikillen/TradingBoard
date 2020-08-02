@@ -23,6 +23,7 @@ did my first standup for this project and showed my wireframes, ERD, readme
 
 
 29/07/20
+- setup trello better
 - showed sitemap and devise gem implementation at standup
 - read about N+1 Db query problem and setup bullet gem
 
@@ -32,11 +33,16 @@ did my first standup for this project and showed my wireframes, ERD, readme
 - was finally able to delete the old columns of my listings table and re-add them as foreign keys
 - installed more gems - simpleform, bootstrap
 
-30/07/20
-
-
 31/07/20
+ - looked into changing postgres PW but couldnt figure it out
 
-- posted solution on ed + sent to Varsha
-- trello, git repo (branches), heroku deploy, 
+1/08/20
+
+- went to devops workshop, learned more about AWS
+- changed postgres PW with jason's help
+- posted solution from database issues on ed + sent to Varsha
+- setup git repo, heroku deployment - but there is a bug with heroku
+
+2/08/20
+
 - 

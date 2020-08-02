@@ -15,5 +15,14 @@ class Listing < ApplicationRecord
 #enum classing: %w[fiction nonfiction unknown]
 #enum binding: %w[paperback hardback unspecified]
 
-  has_one_attached :picture
+  has_one_attached :photo
+  #need to validate?
+  #validates :title, :description, :price_type, :price, :category, :seller_id, :photo, presence: true
+
+  # enums as a hash #enum sex: {female: 0, male: 1} 
+
+  #enums as an array with syntactic sugar so you dont have to use " or list indexes?
+  #best practice to do it as a hash
+  enum price_type: {fixed: 0, free: 1, negotiable: 2, swap: 3}
+  enum category: {tabletop: 0, card: 1, video: 2}
 end

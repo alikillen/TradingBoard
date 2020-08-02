@@ -12,13 +12,17 @@ class ListingsController < ApplicationController
   def show
   end
 
-  # GET /listings/new
+  #does this go to new page?
+  # GET /listings/new - get request for the new form
   def new
     @listing = Listing.new
+    # @all_listings = Listing.all
+    # @all_users = User.all
   end
 
   # GET /listings/1/edit
-  def edit
+  def edit #see helper methods to make more DRY
+    #@edit_listing = Listing.find(params[:id])
   end
 
   # POST /listings
@@ -27,7 +31,7 @@ class ListingsController < ApplicationController
     @listing = Listing.new(listing_params)
 
     respond_to do |format|
-      if @listing.save
+      if @listing.save #redirect to root path after?
         format.html { redirect_to @listing, notice: 'Listing was successfully created.' }
         format.json { render :show, status: :created, location: @listing }
       else
@@ -69,6 +73,12 @@ class ListingsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def listing_params
-      params.fetch(:listing, {})
+      params.fetch(:listing, {})  
     end
+
+  # what about require/permit?
+
+  #   def listing_params
+  #     params.require(:listing).permit(:title, :description, :category, :buyer_id, :seller_id, :price_type, :price, :photo)
+  # end
 end
