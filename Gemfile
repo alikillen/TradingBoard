@@ -68,3 +68,5 @@ gem 'simple_form'
 gem 'faker'
 
 #bootstrap and simpleform FIRST
+
+gem "aws-sdk-s3", "~> 1.75"

@@ -9,6 +9,8 @@
 
 <h1>Listings</h1>
 
+<%# @listings = Listing.all ???? %>
+
 <% for listing in @listings %>
 <div class="card">
   <%= image_tag listing.photo if listing.photo.attached? %>

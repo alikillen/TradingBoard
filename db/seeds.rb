@@ -5,3 +5,17 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+
+20.times do
+  Listing.create(
+  name:Faker::Game.title,
+  description:Faker::Movie.quote,
+  #date_posted:Faker::Date.between(from: '2014-09-23', to: Date.today),
+  price_type: #random
+  category: #random
+  price:
+  photo: #random from faker
+  
+)
+end
