@@ -27,18 +27,24 @@
     <%# drop down code %>
     <div>
         <%= form.label :category %>
-        <%# <%= f.select :category, [[tabletop: 0], [card: 1], [video: 2]] %> 
-        <%= options_for_select ([[tabletop: 0], [card: 1], [video: 2]]) %>
+        <%= form.select(:category, {tabletop: 0, card: 1, video: 2}) %>   
+    </div>
+        <%# <%= form.select(:category, ({tabletop: 0, card: 1, video: 2}.to_a)) %>  
+        <%# <%= form.select (:category, {@category.keys.to_a}) %> 
+        <%# f.input :category, :as => :select, :collection => Listings.categories.keys.to_a %>
+        <%# <%= select_tag(:category, [[tabletop: 0], [card: 1], [video: 2]] ) %> 
+        <%# <%= options_for_select ([[tabletop: 0], [card: 1], [video: 2]]) %> 
         <%# <%= form.select :catgeory, @categories %>  
         <%# collection select works with hashes  - only if they have a model?? %>
         <%# use listing.categories.keys method? %>
         <%# collection_select is only for if category is a model, so form.select is neeeded %>
-    </div>
+   
 
     <%# drop down code %>
     <div>
         <%= form.label :price_type %>
-        <%= options_for_select ([[fixed: 0], [free: 1], [negotiable: 2], [swap: 3]])%>
+        <%= form.select(:price_type, {fixed: 0, free: 1, negotiable: 2, swap: 3}) %> 
+        <%# <%= options_for_select ([[fixed: 0], [free: 1], [negotiable: 2], [swap: 3]])%> 
         <%# <%= form.select :price_type, @price_type %> 
     </div>
 
