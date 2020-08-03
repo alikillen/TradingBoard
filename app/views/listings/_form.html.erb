@@ -27,13 +27,19 @@
     <%# drop down code %>
     <div>
         <%= form.label :category %>
-        <%= form.collection_select :catgeory, @categories, :id, :name %>
+        <%# <%= f.select :category, [[tabletop: 0], [card: 1], [video: 2]] %> 
+        <%= options_for_select ([[tabletop: 0], [card: 1], [video: 2]]) %>
+        <%# <%= form.select :catgeory, @categories %>  
+        <%# collection select works with hashes  - only if they have a model?? %>
+        <%# use listing.categories.keys method? %>
+        <%# collection_select is only for if category is a model, so form.select is neeeded %>
     </div>
 
     <%# drop down code %>
     <div>
         <%= form.label :price_type %>
-        <%= form.collection_select :price_type, @price_type, :id, :name %>
+        <%= options_for_select ([[fixed: 0], [free: 1], [negotiable: 2], [swap: 3]])%>
+        <%# <%= form.select :price_type, @price_type %> 
     </div>
 
     <div>
@@ -42,14 +48,14 @@
     </div>
 
     <%# <div> %>
-        <%# <%= form.label :location %> %>
-        <%# <%= form.text_field :location %> %>
+        <%# <%= form.label :location %> 
+        <%# <%= form.text_field :location %>
     <%# </div> %>
 
     <%# timestamp here? %>
     <%# <div> %>
-        <%# <%= form.label :created_at %> %>
-        <%# <%= form.number_field :created_at %> %>
+        <%# <%= form.label :created_at %> 
+        <%# <%= form.number_field :created_at %> 
     <%# </div> %>
  
 

@@ -16,6 +16,7 @@ class ListingsController < ApplicationController
   # GET /listings/new - get request for the new form
   def new
     @listing = Listing.new
+    @categories = {}
     # @all_listings = Listing.all
     # @all_users = User.all
   end
