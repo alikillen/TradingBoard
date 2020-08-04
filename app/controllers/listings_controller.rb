@@ -4,7 +4,7 @@ class ListingsController < ApplicationController
   # GET /listings
   # GET /listings.json
   def index
-    @listings = Listing.all
+    #@listings = Listing.all
   end
 
   # GET /listings/1
@@ -66,8 +66,14 @@ class ListingsController < ApplicationController
 
   # DELETE /listings/1
   # DELETE /listings/1.json
+
+  # def destroy
+  #   @listing = Listing.find(params[:id])
+  #   authorize! :destroy, @listing
+  # end
+  
   def destroy
-    @listing.destroy
+     @listing.destroy
     respond_to do |format|
       format.html { redirect_to listings_url, notice: 'Listing was successfully destroyed.' }
       format.json { head :no_content }

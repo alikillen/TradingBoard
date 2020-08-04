@@ -1,5 +1,7 @@
 <%# homepage - show all listings - styling! %>
 
+<%# page not displaying properly bc of header %>
+
 <p id="notice"><%= notice %></p>
 
 <h1>Listings</h1>
@@ -12,13 +14,34 @@
   </thead>
 
   <tbody>
+  <% @listings = Listing.all %>
+  <%# <% for listing in @listings%>
     <% @listings.each do |listing| %>
-      <tr>
-        <td><%= link_to 'Show', listing %></td>
-        <td><%= link_to 'Edit', edit_listing_path(listing) %></td>
-        <td><%= link_to 'Destroy', listing, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+ 
+      <div class="card">
+        <%= image_tag listing.photo if listing.photo.attached? %>
+        <p><%= listing.title %></p>
+        <p><%= listing.description%></p>
+        <p><%= listing.category%></p>
+        <p><%= "#{listing.price_type}, #{listing.price}" %></p>
+        <p><%= listing.seller_id %></p>
+        <p><%= listing.created_at %></p>
+        <%= link_to "edit", edit_listing_path(listing.id) %>
+        <tr>
+          <td><%= link_to 'Show', listing %></td>
+          <td><%= link_to 'Edit', edit_listing_path(listing) %></td>
+
+<% if can? :destroy, @listing %>
+  <%= link_to "Destroy", edit_listing_path(@listing) %>
+<% end %>
+          
+          <td><%= link_to 'Destroy', listing, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      </div>
+
+
     <% end %>
+  <%# <% end %> 
   </tbody>
 </table>
 

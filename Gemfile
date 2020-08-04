@@ -72,3 +72,5 @@ gem 'faker'
 #gem "aws-sdk-s3", "~> 1.75"
 
 gem "aws-sdk-s3", require: false
+
+gem "cancan"
