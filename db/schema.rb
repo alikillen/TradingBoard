@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_04_021356) do
+ActiveRecord::Schema.define(version: 2020_08_04_072723) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,14 +39,13 @@ ActiveRecord::Schema.define(version: 2020_08_04_021356) do
   create_table "listings", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "title", limit: 1
+    t.string "title"
     t.bigint "buyer_id"
     t.bigint "seller_id"
     t.text "description"
     t.integer "price_type"
     t.integer "price"
     t.integer "category"
-    t.string "photo"
     t.index ["buyer_id"], name: "index_listings_on_buyer_id"
     t.index ["seller_id"], name: "index_listings_on_seller_id"
   end
@@ -59,7 +58,7 @@ ActiveRecord::Schema.define(version: 2020_08_04_021356) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "name", limit: 1
+    t.string "name"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
