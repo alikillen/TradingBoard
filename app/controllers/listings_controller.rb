@@ -15,10 +15,15 @@ class ListingsController < ApplicationController
   #does this go to new page?
   # GET /listings/new - get request for the new form
   def new
-    @listing = Listing.new
+   @listing = Listing.new
+    #@listing = current_user.listings.new()
+    #@listing = current_user.listings_to_sell.new()
+    #@Listings.seller_id = @User.user_id
+    #:seller_id = :user_id
     @categories = {}
+    # do i need these?
     # @all_listings = Listing.all
-    # @all_users = User.all
+    # @all_users = User.all ???
   end
 
   # GET /listings/1/edit
@@ -29,7 +34,11 @@ class ListingsController < ApplicationController
   # POST /listings
   # POST /listings.json
   def create
-    @listing = Listing.new(listing_params)
+     #@listing = Listing.new(listing_params)
+     #TRY THIS FOR NO SELLER ERROR:
+     #@current_user = User_id
+     @listing = current_user.listings_to_sell.new()
+    
 
     respond_to do |format|
       if @listing.save #redirect to root path after?

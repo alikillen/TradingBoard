@@ -250,7 +250,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  aws-sdk-s3 (~> 1.75)
+  aws-sdk-s3
   bootsnap (>= 1.4.2)
   bootstrap (~> 4.5.0)
   bullet

@@ -1,4 +1,4 @@
-<%= form_with(model: listing, local: true) do |form| %>
+<%= form_with(model: @listing, local: true) do |form| %>
   <% if listing.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(listing.errors.count, "error") %> prohibited this listing from being saved:</h2>
@@ -27,8 +27,15 @@
     <%# drop down code %>
     <div>
         <%= form.label :category %>
-        <%= form.select(:category, {tabletop: 0, card: 1, video: 2}) %>   
+        <%# <%= form.select(:category, {tabletop: 0, card: 1, video: 2}) %>    
+        <%= form.select :category, Listing.categories.keys.to_a %>
     </div>
+    
+   <%# <div>
+        <%= form.label :category %>
+        <%# <%= form.select(:category, Listing.categories) %>    
+    <%# </div> %>
+
         <%# <%= form.select(:category, ({tabletop: 0, card: 1, video: 2}.to_a)) %>  
         <%# <%= form.select (:category, {@category.keys.to_a}) %> 
         <%# f.input :category, :as => :select, :collection => Listings.categories.keys.to_a %>
@@ -43,7 +50,8 @@
     <%# drop down code %>
     <div>
         <%= form.label :price_type %>
-        <%= form.select(:price_type, {fixed: 0, free: 1, negotiable: 2, swap: 3}) %> 
+        <%# <%= form.select(:price_type, {fixed: 0, free: 1, negotiable: 2, swap: 3}) %> 
+        <%= form.select :price_type, Listing.price_types.keys.to_a %>
         <%# <%= options_for_select ([[fixed: 0], [free: 1], [negotiable: 2], [swap: 3]])%> 
         <%# <%= form.select :price_type, @price_type %> 
     </div>
@@ -68,5 +76,6 @@
   <div class="actions">
     <%= form.submit %>
   </div>
+
 <% end %>
 

@@ -17,7 +17,13 @@ class Listing < ApplicationRecord
 
   has_one_attached :photo
   #need to validate?
-  #validates :title, :description, :price_type, :price, :category, :seller_id, :photo, presence: true
+  validates :title, presence: true
+  validates :description, presence: true
+  validates :price_type, presence: true
+  validates :price, presence: true
+  validates :category, presence: true
+  validates :seller_id, presence: true
+  validates :photo, presence: true  
 
   # enums as a hash #enum sex: {female: 0, male: 1} 
 
