@@ -16,10 +16,7 @@ class ListingsController < ApplicationController
   # GET /listings/new - get request for the new form
   def new
    @listing = Listing.new
-    #@listing = current_user.listings.new()
-    #@listing = current_user.listings_to_sell.new()
-    #@Listings.seller_id = @User.user_id
-    #:seller_id = :user_id
+  
     @categories = {}
     # do i need these?
     # @all_listings = Listing.all
@@ -27,8 +24,7 @@ class ListingsController < ApplicationController
   end
 
   # GET /listings/1/edit
-  def edit #see helper methods to make more DRY
-    #@edit_listing = Listing.find(params[:id])
+  def edit 
   end
 
   # POST /listings
@@ -36,9 +32,12 @@ class ListingsController < ApplicationController
   def create
      #@listing = Listing.new(listing_params)
      #TRY THIS FOR NO SELLER ERROR:
-     #@current_user = User_id
-     @listing = current_user.listings_to_sell.new()
-    
+     #@current_user = User_id//
+     @listing = current_user.listings_to_sell.new(listing_params)
+     p "***************************"
+     p listing_params
+     #@listing = Listing.create()
+     #need to pass params?
 
     respond_to do |format|
       if @listing.save #redirect to root path after?
@@ -85,11 +84,17 @@ class ListingsController < ApplicationController
     def listing_params
       #params.fetch(:listing, {})  
       params.require(:listing).permit(:title, :description, :category, :buyer_id, :seller_id, :price_type, :price, :photo)
-    end
+     end
+  end
 
   # what about require/permit?
 
   #   def listing_params
   #     params.require(:listing).permit(:title, :description, :category, :buyer_id, :seller_id, :price_type, :price, :photo)
   # end
-end
+
+    #@listing = current_user.listings.new()
+    #@listing = current_user.listings_to_sell.new()
+    #@Listings.seller_id = @User.user_id
+    #:seller_id = :user_id
+

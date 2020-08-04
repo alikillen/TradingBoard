@@ -4,17 +4,6 @@ class Listing < ApplicationRecord
   belongs_to :buyer, class_name: "User", optional: true #need to specify the model by listing the class name. buyer = user.new
   belongs_to :seller, class_name: "User" #seller = user.new
 
-  #guest role - login, browse, logout
-
-  #see article for info on bullet gem - careful when querying DB
-  #3. belongs_to / has_one associations need singular class name includes
-#@books = Book.all.includes(:author)
-
-#has_one :order
-
-#enum classing: %w[fiction nonfiction unknown]
-#enum binding: %w[paperback hardback unspecified]
-
   has_one_attached :photo
   #need to validate?
   validates :title, presence: true
@@ -31,4 +20,18 @@ class Listing < ApplicationRecord
   #best practice to do it as a hash
   enum price_type: {fixed: 0, free: 1, negotiable: 2, swap: 3}
   enum category: {tabletop: 0, card: 1, video: 2}
+
+
 end
+
+
+  #guest role - login, browse, logout
+
+  #see article for info on bullet gem - careful when querying DB
+  #3. belongs_to / has_one associations need singular class name includes
+#@books = Book.all.includes(:author)
+
+#has_one :order
+
+#enum classing: %w[fiction nonfiction unknown]
+#enum binding: %w[paperback hardback unspecified]
