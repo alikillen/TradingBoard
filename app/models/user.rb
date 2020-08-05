@@ -11,6 +11,8 @@ class User < ApplicationRecord
   #, class_name: "User", foreign_key: "buyer_id"
 # belongs_to :seller, class_name: "User"
 
+#has_one :name #class_name: "User" ??? this caused the null user id error in edit method im experiencing?
+
 #see article for bullet gem how to use - careful when querying DB
 #2. has_many associations need plural class name includes
 #@libraries = Library.where(size: 'large').includes(:books)

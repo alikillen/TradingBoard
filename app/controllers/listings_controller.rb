@@ -1,5 +1,6 @@
 class ListingsController < ApplicationController
   before_action :set_listing, only: [:show, :edit, :update, :destroy]
+  #load_and_authorize_resource
 
   # GET /listings
   # GET /listings.json
@@ -10,6 +11,12 @@ class ListingsController < ApplicationController
   # GET /listings/1
   # GET /listings/1.json
   def show
+    #trying to get the seller id/user id - how are they linked through listings_to_sell
+    #making 2 db calls here
+    listing_id = params[:id]
+    @listing = Listing.find_by(id: listing_id)
+    seller_id = @listing.seller_id
+    @seller = User.find_by(id: seller_id)
   end
 
   #does this go to new page?
@@ -79,6 +86,7 @@ class ListingsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.

@@ -16,6 +16,7 @@ https://tradingboard-marketplace.herokuapp.com/
 
 **Trello Board link:** https://trello.com/invite/b/V72Cv224/b85f321b09dcfe2c2f09eddc1926a3d2/t2a2-marketplace-app
 
+***MAKE A NOTE OF DOCS/SRC/PPT FOLDERS ETC - different in deployment vs submission
 
 **R7	Identification of the problem you are trying to solve by building this particular marketplace app.**
 

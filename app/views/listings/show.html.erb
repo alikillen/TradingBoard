@@ -11,13 +11,22 @@
 
 <%# @listings = Listing.all ???? %>
 
+
+
 <div class="card">
-  <%= image_tag @listing.photo if @listing.photo.attached? %>
+ <p class= "listing-img"> <%= image_tag @listing.photo if @listing.photo.attached? %> </p>
   <p><%= @listing.title %></p>
   <p><%= @listing.description%></p>
   <p><%= @listing.category%></p>
   <p><%= "#{@listing.price_type}, #{@listing.price}" %></p>
-  <p><%= @listing.seller_id %></p>
+  <%# <p><%= @listing.listing_to_sell&.user&.name %>
+    <%# <p><%= @listing.listing_to_sell&.seller_id&.name %>
+    <p><%= @seller&.name %>
+    
+  <%# only shows name if name true &, otherwise shows nothing, create ternary for alt %>
   <p><%= @listing.created_at %></p>
   <%= link_to "edit", edit_listing_path(@listing.id) %>
 </div>
+
+<%# class: "listing-img" %>
+<%# &.name %>
