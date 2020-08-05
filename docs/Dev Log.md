@@ -45,4 +45,8 @@ did my first standup for this project and showed my wireframes, ERD, readme
 
 2/08/20
 
-- 
+3/08/20
+
+4/08/20
+
+also see my 100 days of code log
