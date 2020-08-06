@@ -10,6 +10,9 @@ class User < ApplicationRecord
   has_many :listings_to_sell, class_name: "Listing", foreign_key: "seller_id", dependent: :destroy #destroys posts if user is destroyed
   #, class_name: "User", foreign_key: "buyer_id"
 # belongs_to :seller, class_name: "User"
+# has_many :listings
+
+#listings_to_buy and sell are not defined in DB?
 
 #has_one :name #class_name: "User" ??? this caused the null user id error in edit method im experiencing?
 
