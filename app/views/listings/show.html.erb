@@ -15,14 +15,23 @@
 
 <div class="card">
  <p class= "listing-img"> <%= image_tag @listing.photo if @listing.photo.attached? %> </p>
-  <p><%= @listing.title %></p>
-  <p><%= @listing.description%></p>
-  <p><%= @listing.category%></p>
-  <p><%= "#{@listing.price_type}, #{@listing.price}" %></p>
-  <%# <p><%= @listing.listing_to_sell&.user&.name %> 
+  <p>Title: </p><p><%= @listing.title %></p>
+  <p>Description: </p><p><%= @listing.description%></p>
+  <p>Category (tabletop, card, video): </p><p><%= @listing.category%></p>
+  <p>Price type: </p><p><%= "#{@listing.price_type}" %></p>
+  <p>Price: </p><p><%= "#{@listing.price}" %> </p>
+  <p>Posted by: </p><p><%= @listing&.seller&.name%> </p>    
+  <p>Posted at: </p><p><%= @listing.created_at %></p>
+  <%= link_to "edit", edit_listing_path(@listing.id) %>
+</div>
+
+<%# class: "listing-img" %>
+<%# &.name %>
+
+
+ <%# <p><%= @listing.listing_to_sell&.user&.name %> 
     <%# <p><%= @listing&.user&.name %> 
     <%# <p><%= @listing.listing_to_sell&.seller_id&.name %>
-    <p><%= @listing&.seller&.name%> </p>
     <%# doesnt work without hack in create method %>
     
 
@@ -34,9 +43,3 @@
   
     
   <%# only shows name if name true &, otherwise shows nothing, create ternary for alt %>
-  <p><%= @listing.created_at %></p>
-  <%= link_to "edit", edit_listing_path(@listing.id) %>
-</div>
-
-<%# class: "listing-img" %>
-<%# &.name %>
