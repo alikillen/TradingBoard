@@ -20,12 +20,14 @@
  
       <div class="card">
         <%= image_tag listing.photo if listing.photo.attached? %>
-        <p><%= listing.title %></p>
-        <p><%= listing.description%></p>
-        <p><%= listing.category%></p>
-        <p><%= "#{listing.price_type}, #{listing.price}" %></p>
-        <p><%= listing.seller_id %></p>
-        <p><%= listing.created_at %></p>
+        <p>Title: </p><p><%= listing.title %></p>
+        <p>Description:</p><p> <%= listing.description%></p>
+        <p>Category (tabletop, card, video):</p> <p><%= listing.category%></p>
+        <p>Price type: </p><p><%= "#{listing.price_type}" %></p>
+        <p>Price: </p><p><%= "#{listing.price}" %> </p>
+        <%# <><%= listing.seller_id %>
+        <p>Posted by: </p> <p><%= listing&.seller&.name%> </p>
+        <p>Posted at:</p> <p><%= listing.created_at %> </p>
         <%= link_to "edit", edit_listing_path(listing.id) %>
         <tr>
           <td><%= link_to 'Show', listing %></td>

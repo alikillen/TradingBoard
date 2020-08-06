@@ -17,6 +17,12 @@ class ListingsController < ApplicationController
     # @listing = Listing.find_by(id: listing_id)
     # seller_id = @listing.seller_id
     # @seller = User.find_by(id: seller_id)
+
+    # user_id = params[:id]
+    # @user = User.find_by(id: user_id)
+    # seller_id = @user.seller_id
+    # @seller = Listing.find_by(id: seller_id)
+
   end
 
   #does this go to new page?
