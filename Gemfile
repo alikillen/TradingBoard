@@ -73,4 +73,4 @@ gem 'faker'
 
 gem "aws-sdk-s3", require: false
 
-gem "cancan"
+gem "cancancan"

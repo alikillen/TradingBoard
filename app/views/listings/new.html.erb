@@ -1,11 +1,12 @@
 <div class = "container">
 
-<h1>New Listing</h1>
+  <h1>New Listing</h1>
 
-<%= render 'form', listing: @listing %>
+  <% if can? :new, Listing %>
 
-<%= link_to 'Back', listings_path %>
+    <%= render 'form', listing: @listing %>
+    <%= link_to 'Back', listings_path %>
 
+  <%end %>
 </div>
-
 

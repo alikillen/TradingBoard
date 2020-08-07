@@ -3,7 +3,7 @@ class Listing < ApplicationRecord
   #use optional true because when we make a listing it wont necessarily have a buyer - cant do this for seller
   belongs_to :buyer, class_name: "User", optional: true #need to specify the model by listing the class name. buyer = user.new
   belongs_to :seller, class_name: "User" #seller = user.new
-  belongs_to :user
+  #belongs_to :user
   
   #buyer and seller not defined in DB? 
   #associations between userid and listingid is not working

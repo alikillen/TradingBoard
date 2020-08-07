@@ -11,7 +11,7 @@ class User < ApplicationRecord
   #foreign key should be user id?
   #, class_name: "User", foreign_key: "buyer_id"
 # belongs_to :seller, class_name: "User"
-  has_many :listings
+  #has_many :listings
 
 
 #listings_to_buy and sell are not defined in DB?

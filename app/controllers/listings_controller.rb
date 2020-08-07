@@ -1,6 +1,7 @@
 class ListingsController < ApplicationController
   before_action :set_listing, only: [:show, :edit, :update, :destroy]
-  #load_and_authorize_resource
+  load_and_authorize_resource
+  skip_authorize_resource :only=> [:index, :show]
 
   # GET /listings
   # GET /listings.json
@@ -28,8 +29,9 @@ class ListingsController < ApplicationController
   #does this go to new page?
   # GET /listings/new - get request for the new form
   def new
-   @listing = Listing.new
-  
+   
+    @listing = Listing.new
+   
     @categories = {}
     # do i need these?
     # @all_listings = Listing.all

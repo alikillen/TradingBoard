@@ -42,6 +42,7 @@
       <li class="nav-item active">
       <li class = "nav-link"><%= link_to "Home", listings_path%></li>
   
+  <% if user_signed_in? %>
       </li>
       <li class="nav-item">
         <li class = "nav-link"><%= link_to "Create New Listing", new_listing_path %></li>
@@ -50,6 +51,8 @@
       <li class="nav-item">
         <li class="nav-link"><%= link_to "View Listings", listings_path %></li>
       </li>
+
+      <% if user_signed_in? %>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Settings
@@ -57,8 +60,12 @@
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
           <a class="dropdown-item" href="#">Profile</a>
           <a class="dropdown-item" href="#">Settings</a>
+          <%# <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> 
           <a class="dropdown-item" href="#">Account</a>
         </div>
+      <% end %>
+      <% end %>
+
       </li>
 
       <li>

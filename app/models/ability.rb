@@ -3,13 +3,41 @@ class Ability
 
   def initialize(user)
     # Define abilities for the passed in user here. For example:
-    #
-      # user ||= User.new # guest user (not logged in)
-      # if user.admin?
-      #   can :manage, :all #IF USER LOGGED IN, AND LISTING SELLER ID MATCHES USER ID, THEY CAN EDIT/DESTROY
+    #add authentication to show, index, edit, destroy, profile etc links
+
+    #cancan not actually doing anything because it thinks listings has a user??
+    
+    user ||= User.new()
+      #if @listing.current_user.nil?
+      # if user.present?
+        can :read, Listing
+        can :show, Listing
+      if user.present?
+        can [:read, :create], Listing 
+        can [:update, :destroy, :edit], Listing, seller_id: => user.id
+      end
+    end
+        #if current_user.user_signed_in? && listing&.seller&.user == listing.seller_id
+        #IF USER LOGGED IN, AND LISTING SELLER ID MATCHES USER ID, THEY CAN EDIT/DESTROY
+      # if current_user.user_signed_in? && current_user(listing_params) == current_listing
+      #   can
+  
+end
+
+
+      # if user.user_signed_in? && listing&.seller&.user == listing.seller_id
+      #   can :manage, :current_listing 
       # else
       #   can :read, :all
       # end
+
+    #  if user.nil?
+    #    can :read, Listing
+    # else user.signed_in?
+    #   can [:read, :create], Listing
+    #   can [:update, :destroy, :edit], Listing, :user_id => user.id
+    # end
+
     
 #if logged in - active listings that user owns
 #can :read, Listing, :active => true, :user_id => user.id
@@ -32,5 +60,4 @@ class Ability
     #
     # See the wiki for details:
     # https://github.com/ryanb/cancan/wiki/Defining-Abilities
-  end
-end
+

@@ -2,7 +2,7 @@
 
 class UsersController < ApplicationController
 #   before_action :set_user
-#  #load_and_authorize_resource
+  load_and_authorize_resource
 
 #   #skip_authorize_resource only: [:attend, :cancel_attend]
 

@@ -17,10 +17,18 @@
 
  body {
   padding-top: 70px;
-  padding-bottom: 30px;
+  padding-bottom: 70px;
 }
 
 .listing-img {
   height: 100px;
   width: 100px;
+}
+
+// trying to get spacing in options table right - see w3 article
+.td .tr {
+  width: 150px;
+  text-align: center;
+  border: 1px solid black;
+  padding: 5px;
 }
