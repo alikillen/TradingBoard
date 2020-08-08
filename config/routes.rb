@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   # scaffold/resources?
 
   resources :listings
+
+  get "/profile/listings", to: "listings#view", as: "my_listings"
   # resources :profiles
 
   #get "/payments/success", to: "payments#success"

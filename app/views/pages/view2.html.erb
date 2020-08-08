@@ -1,6 +1,6 @@
 <%# view one users listings - see cancancan docs %>
 
-  <%# Listing.accessible_by(current_ability) %>
+  <%# @listings = Listing.accessible_by(current_ability) %>
 
   <%# show all users listings with edit links %>
   <%# link to account settings devise %>
@@ -8,6 +8,8 @@
   <%# homepage - show all listings - styling! %>
 
 <%# page not displaying properly bc of header %>
+
+<%# <% if current_user.present? && current_user.id == listing.seller_id %> 
 
 <p id="notice"><%= notice %></p>
 

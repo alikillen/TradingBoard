@@ -26,6 +26,10 @@ class ListingsController < ApplicationController
 
   end
 
+  def view #view particular user listing's
+  end
+
+
   #does this go to new page?
   # GET /listings/new - get request for the new form
   def new
