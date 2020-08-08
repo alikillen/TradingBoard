@@ -1,0 +1,57 @@
+<%# homepage - show all listings - styling! %>
+
+<%# page not displaying properly bc of header %>
+
+<p id="notice"><%= notice %></p>
+
+<h1>Listings</h1>
+
+<%# there was a table here? encompassing whole page. why %>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody class = "container">
+  <% @listings = Listing.all %>
+  <%# <% for listing in @listings%>
+    <% @listings.each do |listing| %>
+ 
+      <div class="card">
+        <p><%= image_tag listing.photo, class: 'listing-img' if listing.photo.attached?%></p>
+        <p>Title:</p><p><%= listing.title %></p>
+        <p>Description:</p><p><%= listing.description%></p>
+        <p>Category (tabletop, card, video):</p> <p><%= listing.category%></p>
+        <p>Price type:</p><p><%= "#{listing.price_type}" %></p>
+        <p>Price:</p><p><%= "$#{listing.price}" %> </p>
+        <%# <><%= listing.seller_id %>
+        <p>Posted by:</p> <p><%= listing&.seller&.name%> </p>
+        <p>Posted at:</p> <p><%= listing.created_at %> </p>
+
+        <%# <% if can? :edit, @Listing%> 
+        <%# <%end%> 
+
+        <td class = "td">
+
+        <tr class = "tr"><%= link_to 'Show Listing', listing %></tr>
+
+        <% if current_user.present? && current_user.id == listing.seller_id %>
+        <tr class = "tr"><%= link_to "Edit Listing", edit_listing_path(listing.id) %></tr>
+        <% end %>        
+        
+        <% if current_user.present? && current_user.id == listing.seller_id %>
+        <tr class = "tr"><%= link_to 'Destroy Listing', listing, method: :delete, data: { confirm: 'Are you sure?' } %> </tr>
+        <% end %>
+        
+        </td>
+
+    
+      </div>
+
+      <% end%>
+
+     
+  </tbody>
+
+<br>
