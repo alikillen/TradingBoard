@@ -9,6 +9,8 @@
 
 <%# page not displaying properly bc of header %>
 
+<% if current_user.present? && current_user.id == listing.seller_id %>
+
 <p id="notice"><%= notice %></p>
 
 <h1>My Listings</h1>
@@ -69,3 +71,11 @@
   <%= link_to 'New Listing', new_listing_path %>
   <% end %>
 </p>
+
+
+<% else %>
+
+<p>You have no listings!</p>
+
+<% end %>
+
