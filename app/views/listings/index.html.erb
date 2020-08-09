@@ -55,11 +55,21 @@
     </nav>
   </div>
 
-  <div class="jumbotron p-4 p-md-5 text-white rounded bg-dark">
+ <%# <div style="background-image:url(./images/4.jpg) !important">  %>
+<%# <div style="background:transparent !important" class="jumbotron"> %>
+  <div class="jumbotron p-4 p-md-5 text-white rounded bg-dark" style="background-image: url(https://images.unsplash.com/photo-1585504198199-20277593b94f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1777&q=80); background-size: cover">
     <div class="col-md-6 px-0">
       <h1 class="display-4 font-italic">Welcome to TradingBoard</h1>
       <p class="lead my-3">Buy, sell and swap quality second-hand games.</p>
+        
+        
+        <form class="form-inline">
+          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>     
+
     </div>
+  </div>
   </div>
 
 <% @listings = Listing.all %>
@@ -105,14 +115,7 @@
         </ol>
       </div> %>
 
-      <div class="p-4">
-        <h4 class="font-italic">Elsewhere</h4>
-        <ol class="list-unstyled">
-          <li><a href="#">GitHub</a></li>
-          <li><a href="#">Twitter</a></li>
-          <li><a href="#">Facebook</a></li>
-        </ol>
-      </div>
+
     </aside><!-- /.blog-sidebar -->
 
   </div><!-- /.row -->
@@ -120,7 +123,7 @@
 </main><!-- /.container -->
 
 <footer class="blog-footer">
-  <p>Blog template built for <a href="https://getbootstrap.com/">Bootstrap</a> by <a href="https://twitter.com/mdo">@mdo</a>.</p>
+  <p>Thanks to <a href="https://twitter.com/mdo">@mdo</a> for the bootstrap blog theme.</p>
   <p>
     <a href="#">Back to top</a>
   </p>
