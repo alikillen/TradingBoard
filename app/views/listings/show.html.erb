@@ -15,15 +15,16 @@
 <%# @listings = Listing.all ???? %>
 
 <div class="card">
+    <h3 class="blog-post-title"><%=  @listing.title %></h3>
+    <p class="blog-post-meta"><%= @listing.created_at %></p>
  <%# <p><%= image_tag, class: "listing-img", (@listing.photo if @listing.photo.attached?) %>
  <p><%= image_tag @listing.photo, class: 'listing-img' if @listing.photo.attached?%></p>
-   <p>Title: </p><p><%= @listing.title %></p>
-  <p>Description: </p><p><%= @listing.description%></p>
+   <p>Description: </p><p><%= @listing.description%></p>
   <p>Category (tabletop, card, video): </p><p><%= @listing.category%></p>
   <p>Price type: </p><p><%= "#{@listing.price_type}" %></p>
   <p>Price: </p><p><%= "#{@listing.price}" %> </p>
   <p>Posted by: </p><p><%= @listing&.seller&.name%> </p>    
-  <p>Posted at: </p><p><%= @listing.created_at %></p>
+
 
  <td class = "td">
 
