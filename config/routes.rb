@@ -9,6 +9,10 @@ Rails.application.routes.draw do
   resources :listings
 
   get "/profile/listings", to: "listings#view", as: "my_listings"
+
+  get "listings/category/:category", to: "listings#get_listing_by_cat", as: "category"
+
+  
   # resources :profiles
 
   #get "/payments/success", to: "payments#success"

@@ -30,7 +30,7 @@
       }
     </style>
     <!-- Custom styles for this template -->
-    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?famil=Playfair+Display:700,900" rel="stylesheet">
     <!-- Custom styles for this template -->
     <link href="application.scss" rel="stylesheet">
   </head>
@@ -39,7 +39,18 @@
   <header class="blog-header py-3">
     <div class="row flex-nowrap justify-content-between align-items-center">
       <div class="col-4 text-center">
-        <a class="blog-header-logo text-dark">TradingBoard</a>
+
+      <% if @listings[0]&.card%>
+        <a class="blog-header-logo text-dark">Card Games</a>
+        <% end %>
+        
+        <% if @listings[0]&.video%>
+        <a class="blog-header-logo text-dark">Video Games</a>
+        <% end %>
+
+        <% if @listings[0]&.tabletop%>
+        <a class="blog-header-logo text-dark">Tabletop Games</a>
+        <% end %>
       </div>
       <div class="col-4 d-flex justify-content-end align-items-center">
     
@@ -48,12 +59,12 @@
   </header>
 
   <div class="nav-scroller py-1 mb-2">
-    <nav class="nav d-flex justify-content-between">
-        <li class="nav-link"><%= link_to "Tabletop Games", category_path("0") %></li> 
-        <li class="nav-link"><%= link_to "Card Games", category_path("1") %></li>
-        <li class="nav-link"><%= link_to "Video Games", category_path("2") %></li>
-        <%# im sorry for making it more complicated, its more dry so we kinda need to do it though %>
-    </nav>
+    <div class="nav d-flex justify-content-between">
+        <li class="nav-link"><%= link_to "Tabletop Games", category_path("tabletop") %></li> 
+        <li class="nav-link"><%= link_to "Card Games", category_path("card") %></li>
+        <li class="nav-link"><%= link_to "Video Games", category_path("video") %></li>
+        <%# i tdont think this is going to work either ughhh%>
+    </div>
   </div>
 
  <%# <div style="background-image:url(./images/4.jpg) !important">  %>
@@ -73,11 +84,15 @@
   </div>
   </div>
 
-<% @listings = Listing.all %>
+<%# <% @listings = Listing.find(params[category: {:card}])%> 
+<%# <% @listing = Listing.find_by(category: [:card]) %>
+<%# @listing = Listing.find_by(id: params[:id]) %>
+<%# MyModel.where(some_enum: some_enums["enum_value"]) %>
+<%# (category:{:card})  %>
     <%# <% until @listing(params[:id]) == 20%> 
+
+
 <% @listings.each do |listing| %>
-    <%# NEED TO LIMIT TOTAL AMOUNT OF LISTINGS SHOWN THEN PAGy %>
-    <%# WHY DO LISTINGS SLOWLY MOVE OFFSCREEN? %>
 
   <div class="row mb-2">
     <div class="col-md-6">
@@ -88,32 +103,18 @@
           <div class="mb-1 text-muted"><%= "#{listing.created_at}"%></div>
           <p class="card-text mb-auto"><%= "#{truncate listing.description, length: 100}"%></p>
           <a class="stretched-link"><%= link_to 'Show Listing', listing %></a>
+
         </div>
 
-        <div class="col-auto d-none d-lg-block"></div>
-          <img class="bd-placeholder-img" width="200" height="250" img-src=<%= image_tag listing&.photo if listing&.photo&.attached? %>
-        </div>
-
+        <div class="col-auto d-none d-lg-block">
+          <img class="bd-placeholder-img" width="200" height="250" img-src=<%= image_tag listing.photo if listing.photo.attached?%>
+        </div>     
       </div>
+    </div>
     </div>
 
 <% end%>
     
-
-    <%# how to iterate and create cards as you go? put all html in for loop %>
-    <%# how to limit characters on listing initial description until you get to show method? %>
-
-
-      
-      <%# <div class="p-4"> list posts by date??
-        <h4 class="font-italic">Archives</h4>
-        <ol class="list-unstyled mb-0">
-          <li><a href="#">March 2014</a></li>
-          <li><a href="#">February 2014</a></li>
-          <li><a href="#">January 2014</a></li>
-          <li><a href="#">December 2013</a></li>
-        </ol>
-      </div> %>
 
 
     </aside><!-- /.blog-sidebar -->

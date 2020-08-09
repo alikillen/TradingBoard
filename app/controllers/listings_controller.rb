@@ -1,7 +1,7 @@
 class ListingsController < ApplicationController
-  before_action :set_listing, only: [:show, :edit, :update, :destroy]
+  before_action :set_listing, only: [:edit, :update, :destroy]
   load_and_authorize_resource
-  skip_authorize_resource :only=> [:index, :show]
+  skip_authorize_resource :only=> [:index, :show, :get_listing_by_cat]
 
   # GET /listings
   # GET /listings.json
@@ -27,6 +27,25 @@ class ListingsController < ApplicationController
   end
 
   def view #view particular user listing's
+  end
+
+  def get_listing_by_cat
+    puts "------------------------------"
+    puts params[:category]
+    puts params[:category].class
+    
+    category = params[:category] = #video
+    # soemthing is happening at least
+
+    
+    
+    @listings = Listing.where(category: category)
+
+    puts "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+
+
+    
+    p @listings
   end
 
 
