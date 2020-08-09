@@ -77,13 +77,14 @@
           <div class="mb-1 text-muted"><%= "#{listing.created_at}"%></div>
           <p class="card-text mb-auto"><%= "#{truncate listing.description, length: 100}"%></p>
           <a class="stretched-link"><%= link_to 'Show Listing', listing %></a>
+
         </div>
+
         <div class="col-auto d-none d-lg-block">
-          <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Listing Img</title><rect width="100%" height="100%" fill="#55595c"/><%= image_tag listing.photo, class: 'listing-img' if listing.photo.attached?%></svg>
-        <%# HOW TO GET IMAGE TO SHOW? %>
-        <%# <%= image_tag listing.photo, class: 'listing-img' if listing.photo.attached?%>
-        </div>
+          <img class="bd-placeholder-img" width="200" height="250" img-src=<%= image_tag listing.photo if listing.photo.attached?%>
+        </div>     
       </div>
+    </div>
     </div>
 
 <% end%>
