@@ -40,15 +40,15 @@
     <div class="row flex-nowrap justify-content-between align-items-center">
       <div class="col-4 text-center">
 
-      <% if @listings[0]&.card%>
+      <% if @listings[0]&.card?%>
         <a class="blog-header-logo text-dark">Card Games</a>
         <% end %>
         
-        <% if @listings[0]&.video%>
+        <% if @listings[0]&.video?%>
         <a class="blog-header-logo text-dark">Video Games</a>
         <% end %>
 
-        <% if @listings[0]&.tabletop%>
+        <% if @listings[0]&.tabletop?%>
         <a class="blog-header-logo text-dark">Tabletop Games</a>
         <% end %>
       </div>
@@ -60,10 +60,10 @@
 
   <div class="nav-scroller py-1 mb-2">
     <div class="nav d-flex justify-content-between">
-        <li class="nav-link"><%= link_to "Tabletop Games", category_path("tabletop") %></li> 
-        <li class="nav-link"><%= link_to "Card Games", category_path("card") %></li>
-        <li class="nav-link"><%= link_to "Video Games", category_path("video") %></li>
-        <%# i tdont think this is going to work either ughhh%>
+        <li class="nav-link"><%= link_to "Tabletop Games", category_path('tabletop') %></li> 
+        <li class="nav-link"><%= link_to "Card Games", category_path('card') %></li>
+        <li class="nav-link"><%= link_to "Video Games", category_path('video') %></li>
+       
     </div>
   </div>
 
@@ -77,7 +77,7 @@
         
         <form class="form-inline">
           <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+           <button type="button" class="btn btn-success">Search</button>
         </form>     
 
     </div>

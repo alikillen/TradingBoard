@@ -6,7 +6,14 @@ class ListingsController < ApplicationController
   # GET /listings
   # GET /listings.json
   def index
+
     #@listings = Listing.all
+
+    # if params[:category].nil?
+    #   @listings = Listing.all
+    # else 
+    # @listings = Listing.where("category: ?", params[:category].to_i)
+    # end
   end
 
   # GET /listings/1
@@ -29,17 +36,20 @@ class ListingsController < ApplicationController
   def view #view particular user listing's
   end
 
-  def get_listing_by_cat(category)
+  def get_listing_by_cat
     puts "------------------------------"
+    p params
     puts params[:category]
     puts params[:category].class
     
-    category = params[:category] = #video
+    # category = params[:category] = #video
     # soemthing is happening at least
 
     
-    #@listings = Listing.where("category: ?, params[:category]")
-    @listings = Listing.where(:category)
+    #@listings = Listing.where("category: ?", params[:category].to_i)
+    # @listings = Listing.where(category)
+    @listings = Listing.where(category: (params[:category]))
+    
 
     puts "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
     p @listings

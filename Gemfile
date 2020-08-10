@@ -59,10 +59,6 @@ gem 'devise'
 
 gem 'bullet'
 
-gem 'bootstrap', '~> 4.5.0'
-
-gem 'jquery-rails'
-
 gem 'simple_form'
 
 gem 'faker'

@@ -49,10 +49,9 @@
 
   <div class="nav-scroller py-1 mb-2">
     <nav class="nav d-flex justify-content-between">
-        <li class="nav-link"><%= link_to "Tabletop Games", category_path("0") %></li> 
-        <li class="nav-link"><%= link_to "Card Games", category_path("1") %></li>
-        <li class="nav-link"><%= link_to "Video Games", category_path("2") %></li>
-        <%# im sorry for making it more complicated, its more dry so we kinda need to do it though %>
+        <li class="nav-link"><%= link_to "Tabletop Games", category_path("tabletop") %></li> 
+        <li class="nav-link"><%= link_to "Card Games", category_path("card") %></li>
+        <li class="nav-link"><%= link_to "Video Games", category_path("video") %></li>
     </nav>
   </div>
 
@@ -122,6 +121,7 @@
   </div><!-- /.row -->
 
 </main><!-- /.container -->
+
 
 </body>
 </html>
