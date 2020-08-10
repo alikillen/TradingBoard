@@ -1,5 +1,3 @@
-<%# what is this page for %>
-
 <p id="notice"><%= notice %></p>
 
 <% if can? :edit, Listing %>
@@ -8,39 +6,41 @@
 
 <%= link_to 'Back', listings_path %>
 
-<%# show a single listing %>
+<%# show a single listing - no truncation %>
 
-<h1>Listings</h1>
+<h1>View Listing Detail</h1>
 
-<%# @listings = Listing.all ???? %>
+<div class="row mb-2">
+    <div class="col-md-6">
+      <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+        <div class="col p-4 d-flex flex-column position-static">
+          <strong class="mb-1 text-muted"><%= "#{@listing.category}"%></strong>
+          <h3 class="mb-0"><%= "#{@listing.title}"%></h3>
+          <div class="mb-1 text-muted"><%= "#{@listing.created_at}"%></div>
+          <p class="card-text mb-auto"><%= "#{@listing.description}"%></p>
 
-<div class="card">
-    <h3 class="blog-post-title"><%=  @listing.title %></h3>
-    <p class="blog-post-meta"><%= @listing.created_at %></p>
- <%# <p><%= image_tag, class: "listing-img", (@listing.photo if @listing.photo.attached?) %>
- <p><%= image_tag @listing.photo, class: 'listing-img' if @listing.photo.attached?%></p>
-   <p>Description: </p><p><%= @listing.description%></p>
-  <p>Category (tabletop, card, video): </p><p><%= @listing.category%></p>
-  <p>Price type: </p><p><%= "#{@listing.price_type}" %></p>
-  <p>Price: </p><p><%= "#{@listing.price}" %> </p>
-  <p>Posted by: </p><p><%= @listing&.seller&.name%> </p>    
-
-
- <td class = "td">
-
-        <tr class = "tr"><%= link_to 'Show Listing', @listing %></tr>
-
-        <% if current_user.present? && current_user.id == @listing.seller_id %>
-        <tr class = "tr"><%= link_to "Edit Listing", edit_listing_path(@listing.id) %></tr>
-        <% end %>        
+          <td class = "td">
+       
+          <% if current_user.present? && current_user.id == @listing.seller_id %>
+          <tr class = "tr"><%= link_to "Edit Listing", edit_listing_path(@listing.id) %></tr>
+          <% end %>        
         
-        <% if current_user.present? && current_user.id == @listing.seller_id %>
-        <tr class = "tr"><%= link_to 'Destroy Listing', @listing, method: :delete, data: { confirm: 'Are you sure?' } %> </tr>
-        <% end %>
+          <% if current_user.present? && current_user.id == @listing.seller_id %>
+          <tr class = "tr"><%= link_to 'Destroy Listing', @listing, method: :delete, data: { confirm: 'Are you sure?' } %> </tr>
+          <% end %>        
+        </td>
         
-</td>
-</div>
+        </div>
 
+        <div class="col-auto d-none d-lg-block"></div>
+          <img class="bd-placeholder-img" width="200" height="250" img-src=<%= image_tag @listing&.photo if @listing&.photo&.attached? %>
+        </div>
+
+
+
+      </div>
+    </div>
+  
 <%# class: "listing-img" %>
 <%# &.name %>
 
