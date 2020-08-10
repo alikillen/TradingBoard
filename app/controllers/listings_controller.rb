@@ -29,7 +29,7 @@ class ListingsController < ApplicationController
   def view #view particular user listing's
   end
 
-  def get_listing_by_cat
+  def get_listing_by_cat(category)
     puts "------------------------------"
     puts params[:category]
     puts params[:category].class
@@ -38,13 +38,10 @@ class ListingsController < ApplicationController
     # soemthing is happening at least
 
     
-    
-    @listings = Listing.where(category: category)
+    #@listings = Listing.where("category: ?, params[:category]")
+    @listings = Listing.where(:category)
 
     puts "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
-
-
-    
     p @listings
   end
 

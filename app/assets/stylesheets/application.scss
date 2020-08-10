@@ -26,6 +26,26 @@
   width: 100px;
 }
 
+// <div class="row mb-2">
+// <div class="col-md-6">
+//   <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+//     <div class="col p-4 d-flex flex-column position-static">
+
+    .row.mb-2 {
+      margin: auto;
+    }
+
+    // centring listings on index page
+
+    .col-md-6 {
+      margin: auto;
+    }
+
+    .row.no-gutters.border.rounded.overflow-hidden.flex-md-row.mb-4.shadow-sm.h-md-250.position-relative {
+      margin: auto;
+    }
+
+
 // .jumbotron {
 //   background-image: url("./images/4.jpg") !important;
 // }
