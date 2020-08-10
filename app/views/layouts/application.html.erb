@@ -13,16 +13,7 @@
   <body>
 
   
-<p class="navbar-text float-right">
-<% if user_signed_in? %>
-  Logged in as <strong><%= current_user.email %></strong>.
-  <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
-  <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
-<% else %>
-  <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
-  <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
-<% end %>
-</p>
+
 
 <% if notice %>
   <p class="alert alert-success"><%= notice %></p>
@@ -33,7 +24,7 @@
     <%= yield %>
 
 
-        <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+  <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
   <a class="navbar-brand">TradingBoard</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -47,15 +38,12 @@
       </li>
       <li class="nav-item">
         <li class = "nav-link"><%= link_to "Create New Listing", new_listing_path %></li>
-        
       </li>
-      <% if user_signed_in?%>
+ 
       <li class="nav-item">
         <li class="nav-link"><%= link_to "View My Listings", my_listings_path %></li>
       </li>
-      <%end %>
-
-      <% if user_signed_in? %>
+     
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           My TradingBoard
@@ -66,18 +54,18 @@
           <a class="dropdown-item"><%= link_to "Account Settings", edit_user_registration_path %></a>
           <%# <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> 
         </div>
-      <% end %>
-      <% end %>
 
-      </li>
+        <p class="navbar-text float-right">
 
-      <li>
-        <form class="form-inline">
-          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
+  Logged in as <strong><%= current_user.email %></strong>.
+  <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
+  <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+<% else %>
+  <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
+  <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
+<% end %>
+</p>
 
-      </li>
 
     </ul>
   </div>
