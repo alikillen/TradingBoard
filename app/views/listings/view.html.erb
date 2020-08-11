@@ -2,9 +2,10 @@
 
 <h1>My Listings</h1>
 
-<% @listings = Listing.accessible_by(current_ability, :update) %>
+<% @listings = Listing.accessible_by(current_ability, :update) %> 
 
 <% @listings.each do |listing| %>
+<% if current_user.present? && current_user == listing.seller %>
 
 
 <div class="row mb-2">
@@ -18,29 +19,23 @@
           <p class="card-text mb-auto"><%= "#{truncate listing.description, length: 100}"%></p>
 
           <td class = "td">
-          <tr class = "tr"><%= link_to 'Show Listing', listing %></tr>
-
-          <% if current_user.present? && current_user == listing.seller %>
+          <tr class = "tr"><%= link_to 'Show Listing', listing %></tr>      
           <tr class = "tr"><%= link_to "Edit Listing", edit_listing_path(listing) %> </tr>
           <tr class = "tr"><%= link_to 'Destroy Listing', listing, method: :delete, data: { confirm: 'Are you sure?' } %> </tr>
-          <% end %>        
-        </td>
+          </td>
         
         </div>
 
-        <div class="col-auto d-none d-lg-block"></div>
-          <img class="bd-placeholder-img" width="200" height="250" img-src=<%= image_tag listing&.photo if listing&.photo&.attached? %>
+        <div class="col-auto d-none d-lg-block">
+          <img class="bd-placeholder-img" width="200" height="250" img-src=<%= image_tag listing&.photo if listing&.photo&.attached? %>>
         </div>
 
-
-
       </div>
+    </div>
     </div>
   
 
 
-    
-
-
+      <% end%>
       <% end%>
 
