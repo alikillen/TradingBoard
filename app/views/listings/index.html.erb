@@ -11,6 +11,7 @@
     </div>
   </header>
 
+<%# see routes for paths links %>
   <div class="nav-scroller py-1 mb-2">
     <nav class="nav d-flex justify-content-between">
         <li class="nav-link"><%= link_to "Tabletop Games", category_path("tabletop") %></li> 
@@ -21,6 +22,7 @@
 
  <%# <div style="background-image:url(./images/4.jpg) !important">  %>
 <%# <div style="background:transparent !important" class="jumbotron"> %>
+<%# had to do inline styling to override bootstrap class %>
   <div class="jumbotron p-4 p-md-5 text-white rounded bg-dark" style="background-image: url(https://images.unsplash.com/photo-1585504198199-20277593b94f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1777&q=80); background-size: cover">
     <div class="col-md-6 px-0">
       <h1 class="display-4 font-italic">Welcome to TradingBoard</h1>
@@ -29,7 +31,7 @@
         
         <form class="form-inline">
           <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-          <%# <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> %>
+         
           <button type="button" class="btn btn-success">Search</button>
         </form>     
 
@@ -38,10 +40,10 @@
   </div>
 
 <% @listings = Listing.all %>
-    <%# <% until @listing(params[:id]) == 20%> 
+   
 <% @listings.each do |listing| %>
-    <%# NEED TO LIMIT TOTAL AMOUNT OF LISTINGS SHOWN THEN PAGy %>
-    <%# WHY DO LISTINGS SLOWLY MOVE OFFSCREEN? %>
+    <%# NEED TO LIMIT TOTAL AMOUNT OF LISTINGS SHOWN - use pagy later %>
+ 
 
   <div class="row mb-2">
     <div class="col-md-6">
@@ -55,6 +57,7 @@
            <td class = "td">
           <tr class = "tr"><%= link_to 'Show Listing', listing %></tr>
 
+<%# validating user is logged in and posted this listing %>
           <% if current_user.present? && current_user == listing.seller %>
           <tr class = "tr"><%= link_to "Edit Listing", edit_listing_path(listing) %></tr>
           <% end %>        
@@ -71,7 +74,7 @@
 
 <% end%>
     
-</div><!-- /.row -->
+</div>
 
 
 

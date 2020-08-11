@@ -2,6 +2,7 @@
 
   <h1>New Listing</h1>
 
+<%# cancancan for backend authorisation %>
   <% if can? :new, Listing %>
 
     <%= render 'form', listing: @listing %>

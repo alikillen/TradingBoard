@@ -6,14 +6,14 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-
+#this method attaches images from assets/images folder to listings iteratively
 def attach_pictures_to_listings(listing, i)
   #listings = Listing.all
   if listing&.photo&.attached?
     return
   end
   #listings.each do |listing|
-  string1 = "app/assets/images/#{i}.jpg" #NEED CORRECT PATH HERE
+  string1 = "app/assets/images/#{i}.jpg" 
   string2 = "#{i}.jpg"
        listing.photo.attach(
            io: File.open(string1),
@@ -27,7 +27,7 @@ def attach_pictures_to_listings(listing, i)
    #end
 end
 
-#needed to unescape some characters so they dont render as encoded HTML - but it didnt work
+#needed to unescape some characters so they dont render as encoded HTML - but it didnt work! needs fixing
 
 require 'faker'
 
@@ -46,16 +46,16 @@ require 'faker'
   listing.seller = new_user
   listing.price_type = rand(0..3)
 
-  if listing.price_type == 1 #if free OR SWAP - this is not working
+  if listing.price_type == 1 #if free OR SWAP - this is not working - price should have to be 0 if price type is swap/free
     listing.price = 0
   else 
     listing.price = Faker::Number.between(from: 1, to: 1000)
   end
 
   listing.category = rand(0..2)
-  attach_pictures_to_listings(listing, i+1) #method above?? #image.attach(io: File.open('/path/to/file'), filename: 'file.pdf', content_type: 'image/jpg')
+  attach_pictures_to_listings(listing, i+1) 
     
-  #new_user.save
+  
   listing.save
 
  end

@@ -2,6 +2,7 @@
 
 <h1>My Listings</h1>
 
+<%# validating so that only listings that user has posted are shown! and then validating if they are logged in %>
 <% @listings = Listing.where(seller_id: current_user.id) %>
 
 <% @listings.each do |listing| %>
@@ -14,10 +15,12 @@
         <div class="col p-4 d-flex flex-column position-static">
           <strong class="mb-1 text-muted"><%= "#{listing.category}"%></strong>
           <h3 class="mb-0"><%= "#{truncate listing.title, length: 50}"%></h3>
+          <%# truncated so that its not too long on preview %>
           <div class="mb-1 text-muted"><%= "#{listing.created_at}"%></div>
           <div> <%= %"price: #{listing.price_type}, $#{listing.price}" %> </div>
           <p class="card-text mb-auto"><%= "#{truncate listing.description, length: 100}"%></p>
 
+<%# see routes for path links %>
           <td class = "td">
           <tr class = "tr"><%= link_to 'Show Listing', listing %></tr>      
           <tr class = "tr"><%= link_to "Edit Listing", edit_listing_path(listing) %> </tr>

@@ -10,6 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+#some migrations got renamed to old but they have still been run so i left them in. when debugging with instructors we were going to delete them but left them inside
+
 ActiveRecord::Schema.define(version: 2020_08_04_072723) do
 
   # These are extensions that must be enabled in order to support this database

@@ -18,7 +18,7 @@
 
           <td class = "td">
        
-       <%# had to do listing.seller here for create method on heroku? will this still work on local? %>
+       <%# had to do listing.seller here for create method on heroku. but something in heroku still being called seller_id so heroku wont run %>
           <% if current_user.present? && current_user == @listing.seller %>
           <tr class = "tr"><%= link_to "Edit Listing", edit_listing_path(@listing) %></tr>
           <tr class = "tr"><%= link_to 'Destroy Listing', @listing, method: :delete, data: { confirm: 'Are you sure?' } %> </tr>
@@ -35,22 +35,3 @@
 
       </div>
     </div>
-  
-<%# class: "listing-img" %>
-<%# &.name %>
-
-
- <%# <p><%= @listing.listing_to_sell&.user&.name %> 
-    <%# <p><%= @listing&.user&.name %> 
-    <%# <p><%= @listing.listing_to_sell&.seller_id&.name %>
-    <%# doesnt work without hack in create method %>
-    
-
-      <%# # listing_id = params[:id]
-    # @listing = Listing.find_by(id: listing_id)
-    # seller_id = @listing.seller_id
-    # @seller = User.find_by(id: seller_id) %>
-
-  
-    
-  <%# only shows name if name true &, otherwise shows nothing, create ternary for alt %>

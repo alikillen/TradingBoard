@@ -3,6 +3,8 @@
     <div class="row flex-nowrap justify-content-between align-items-center">
       <div class="col-4 text-center">
 
+      <%# dynamically routing to page depending on category that was passed in the link that was clicked on by user %>
+
       <% if @listings[0]&.card?%>
         <a class="blog-header-logo text-dark">Card Games</a>
         <% end %>
@@ -21,6 +23,7 @@
     </div>
   </header>
 
+<%# see routes for links paths %>
   <div class="nav-scroller py-1 mb-2">
     <div class="nav d-flex justify-content-between">
         <li class="nav-link"><%= link_to "Tabletop Games", category_path('tabletop') %></li> 
@@ -30,8 +33,7 @@
     </div>
   </div>
 
- <%# <div style="background-image:url(./images/4.jpg) !important">  %>
-<%# <div style="background:transparent !important" class="jumbotron"> %>
+
   <div class="jumbotron p-4 p-md-5 text-white rounded bg-dark" style="background-image: url(https://images.unsplash.com/photo-1585504198199-20277593b94f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1777&q=80); background-size: cover">
     <div class="col-md-6 px-0">
       <h1 class="display-4 font-italic">Welcome to TradingBoard</h1>
@@ -47,6 +49,7 @@
   </div>
   </div>
 
+<%# old code from other methods i tried %>
 <%# <% @listings = Listing.find(params[category: {:card}])%> 
 <%# <% @listing = Listing.find_by(category: [:card]) %>
 <%# @listing = Listing.find_by(id: params[:id]) %>
@@ -88,5 +91,5 @@
     
 
 
-  </div><!-- /.row -->
+  </div>
 

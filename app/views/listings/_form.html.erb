@@ -48,7 +48,7 @@
       <div class="actions">
     <%= form.submit %>
 
-<%# had to do listing.seller here for create method on heroku? will this still work on local? %>
+<%# had to do listing.seller here for create method on heroku. but heroku not working %>
       <% if current_user.present? && current_user == @listing.seller %>
           <tr class = "tr"><%= link_to 'Destroy Listing', @listing, method: :delete, data: { confirm: 'Are you sure?' } %> </tr>
       <% end %>        
@@ -56,30 +56,4 @@
 
 <% end %>
 
-   <%# <div>
-        <%= form.label :category %>
-        <%# <%= form.select(:category, Listing.categories) %>    
-    <%# </div> %>
-
-        <%# <%= form.select(:category, ({tabletop: 0, card: 1, video: 2}.to_a)) %>  
-        <%# <%= form.select (:category, {@category.keys.to_a}) %> 
-        <%# f.input :category, :as => :select, :collection => Listings.categories.keys.to_a %>
-        <%# <%= select_tag(:category, [[tabletop: 0], [card: 1], [video: 2]] ) %> 
-        <%# <%= options_for_select ([[tabletop: 0], [card: 1], [video: 2]]) %> 
-        <%# <%= form.select :catgeory, @categories %>  
-        <%# collection select works with hashes  - only if they have a model?? %>
-        <%# use listing.categories.keys method? %>
-        <%# collection_select is only for if category is a model, so form.select is neeeded %>
-
-    <%# <div> %>
-        <%# <%= form.label :location %> 
-        <%# <%= form.text_field :location %>
-    <%# </div> %>
-
-    <%# timestamp here? %>
-    <%# <div> %>
-        <%# <%= form.label :created_at %> 
-        <%# <%= form.number_field :created_at %> 
-    <%# </div> %>
- 
 
