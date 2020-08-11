@@ -53,20 +53,20 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-gem "stripe", "~> 5.22"
+gem "stripe", "~> 5.22" #installed but didnt get time to implement payment feature
 
-gem 'devise'
+gem 'devise' #to setup user login and authentication capability
 
-gem 'bullet'
+gem 'bullet' #to manage calls to database
 
-gem 'simple_form'
+gem 'simple_form' #intended to use but didnt
 
-gem 'faker'
+gem 'faker' #used for seeding data in db, but seeding on heroku didnt work. works locally though
 
 #bootstrap and simpleform FIRST
 
 #gem "aws-sdk-s3", "~> 1.75"
 
-gem "aws-sdk-s3", require: false
+gem "aws-sdk-s3", require: false #for AWS image storage capability on my S3 bucket
 
-gem "cancancan"
+gem "cancancan" #to manage user permissions/authorisations on the backend - frontend was handled locally as you can see in my index/show/view/get_listings_by_cat html erb files

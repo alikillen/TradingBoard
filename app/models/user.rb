@@ -6,8 +6,8 @@ class User < ApplicationRecord
 
   #has_many :listings
   #belongs to makes the foreign key mandatory
-  has_many :listings_to_buy, class_name: "Listing", foreign_key: "buyer_id", dependent: :destroy #referring to same table with different key - self ref
-  has_many :listings_to_sell, class_name: "Listing", foreign_key: "seller_id", dependent: :destroy #destroys posts if user is destroyed
+  has_many :listings_to_buy, class_name: "Listing", foreign_key: "buyer", dependent: :destroy #referring to same table with different key - self ref
+  has_many :listings_to_sell, class_name: "Listing", foreign_key: "seller", dependent: :destroy #destroys posts if user is destroyed
   #foreign key should be user id?
   #, class_name: "User", foreign_key: "buyer_id"
 # belongs_to :seller, class_name: "User"
