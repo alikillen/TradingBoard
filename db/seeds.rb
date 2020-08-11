@@ -7,11 +7,13 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-def attach_pictures_to_listings
-  listings = Listing.all
-  i = 1
-  listing.each do |listing|
-  string1 = "../app/assets/images/#{i}.jpg" #NEED CORRECT PATH HERE
+def attach_pictures_to_listings(listing, i)
+  #listings = Listing.all
+  if listing&.photo&.attached?
+    return
+  end
+  #listings.each do |listing|
+  string1 = "app/assets/images/#{i}.jpg" #NEED CORRECT PATH HERE
   string2 = "#{i}.jpg"
        listing.photo.attach(
            io: File.open(string1),
@@ -20,33 +22,40 @@ def attach_pictures_to_listings
            identify: false
        )
           puts "added listing image to #{listing.title}, i = #{i}"
-         i += 1
-         i = 1 if i > 15
-   end
+        # i += 1
+        # i = 1 if i > 15
+   #end
 end
+
+#needed to unescape some characters so they dont render as encoded HTML - but it didnt work
 
 require 'faker'
 
- 15.times do
+ 15.times do |i|
+
   new_user = User.new
-  new_user.email= Faker::Internet.email
+  new_user.email= CGI.unescape(Faker::Internet.email)
   new_user.password = "password"
-  new_user.name = Faker::Name.name
+  new_user.name = CGI.unescape(Faker::Name.name)
+
+  new_user.save
   
   listing = Listing.new()
-  listing.title = Faker::Game.title
-  listing.description = Faker::Movie.quote
-  listing.seller = user
+  listing.title = CGI.unescape(Faker::Game.title)
+  listing.description = CGI.unescape(Faker::Movie.quote)
+  listing.seller = new_user
   listing.price_type = rand(0..3)
 
-  if price_type == 1
+  if listing.price_type == 1 #if free OR SWAP - this is not working
     listing.price = 0
-  else listing.price = Faker::Number.between(from: 1, to: 1000)
-  
+  else 
+    listing.price = Faker::Number.between(from: 1, to: 1000)
+  end
+
   listing.category = rand(0..2)
-  listing.photo = listing.attach_pictures_to_listings #method above?? #image.attach(io: File.open('/path/to/file'), filename: 'file.pdf', content_type: 'image/jpg')
-  
-  new_user.save
+  attach_pictures_to_listings(listing, i+1) #method above?? #image.attach(io: File.open('/path/to/file'), filename: 'file.pdf', content_type: 'image/jpg')
+    
+  #new_user.save
   listing.save
 
  end
@@ -74,7 +83,7 @@ require 'faker'
   
 #   #random from faker or local storage, not defined in DB?? #images to match categories somehow?
   
-)
+
 
 
 #how to link users to their listings?

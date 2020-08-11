@@ -101,15 +101,13 @@
           <strong class="mb-1 text-muted"><%= "#{listing.category}"%></strong>
           <h3 class="mb-0"><%= "#{truncate listing.title, length: 50}"%></h3>
           <div class="mb-1 text-muted"><%= "#{listing.created_at}"%></div>
+        <div> <%= %"price: #{listing.price_type}, $#{listing.price}" %> </div>
           <p class="card-text mb-auto"><%= "#{truncate listing.description, length: 100}"%></p>
            <td class = "td">
           <tr class = "tr"><%= link_to 'Show Listing', listing %></tr>
           
          <% if current_user.present? && current_user.id == listing.seller_id %>
           <tr class = "tr"><%= link_to "Edit Listing", edit_listing_path(listing.id) %></tr>
-          <% end %>        
-        
-          <% if current_user.present? && current_user.id == listing.seller_id %>
           <tr class = "tr"><%= link_to 'Destroy Listing', listing, method: :delete, data: { confirm: 'Are you sure?' } %> </tr>
           <% end %>    
           </td>

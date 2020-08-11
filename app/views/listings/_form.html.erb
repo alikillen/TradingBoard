@@ -47,6 +47,10 @@
 
       <div class="actions">
     <%= form.submit %>
+
+      <% if current_user.present? && current_user.id == @listing.seller_id %>
+          <tr class = "tr"><%= link_to 'Destroy Listing', @listing, method: :delete, data: { confirm: 'Are you sure?' } %> </tr>
+      <% end %>        
   </div>
 
 <% end %>

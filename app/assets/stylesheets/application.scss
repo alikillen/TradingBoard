@@ -40,8 +40,10 @@
       margin: auto;
     }
 
+    // overflow not working here? need to fix
     .row.no-gutters.border.rounded.overflow-hidden.flex-md-row.mb-4.shadow-sm.h-md-250.position-relative {
       margin: auto;
+      overflow: scroll; 
     }
 
 
