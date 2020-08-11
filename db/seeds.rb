@@ -6,6 +6,25 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+
+def attach_pictures_to_listings
+  listings = Listing.all
+  i = 1
+  listing.each do |listing|
+  string1 = "../app/assets/images/#{i}.jpg" #NEED CORRECT PATH HERE
+  string2 = "#{i}.jpg"
+       listing.photo.attach(
+           io: File.open(string1),
+           filename: string2,
+           content_type: 'image/jpg',
+           identify: false
+       )
+          puts "added listing image to #{listing.title}, i = #{i}"
+         i += 1
+         i = 1 if i > 15
+   end
+end
+
 require 'faker'
 
  15.times do
@@ -25,7 +44,7 @@ require 'faker'
   else listing.price = Faker::Number.between(from: 1, to: 1000)
   
   listing.category = rand(0..2)
-  listing.photo = listing.image.attach_pictures_to_listings #method below?? #image.attach(io: File.open('/path/to/file'), filename: 'file.pdf', content_type: 'image/jpg')
+  listing.photo = listing.attach_pictures_to_listings #method above?? #image.attach(io: File.open('/path/to/file'), filename: 'file.pdf', content_type: 'image/jpg')
   
   new_user.save
   listing.save
@@ -33,24 +52,6 @@ require 'faker'
  end
 
 
-
- def attach_pictures_to_listings
-  listings = Listing.all
-  i = 1
-  listing.each do |listing|
-  string1 = "../app/assets/images/#{i}.jpg" #NEED CORRECT PATH HERE
-  string2 = "#{i}.jpg"
-       pattern.pictures.attach(
-           io: File.open(string1),
-           filename: string2,
-           content_type: 'image/jpg',
-           identify: false
-       )
-          puts "added listing image to #{listing.title}, i = #{i}"
-         i += 1
-         i = 1 if i > 15
-   end
-end
 
 
 #where to specify path? D:\ALI FILES\Programming\projects\TERM_2\ASSESSMENT\Alison_Killen_T2A2\src\TradingBoard\app\assets\images
