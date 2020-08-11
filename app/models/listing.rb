@@ -16,7 +16,7 @@ class Listing < ApplicationRecord
   validates :price_type, presence: true
   validates :price, presence: true
   validates :category, presence: true
-  validates :seller_id, presence: true
+  validates :seller, presence: true
   #validates :photo, presence: true  
 
   # enums as a hash #enum sex: {female: 0, male: 1} 

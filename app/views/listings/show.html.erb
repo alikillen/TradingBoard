@@ -18,8 +18,9 @@
 
           <td class = "td">
        
-          <% if current_user.present? && current_user.id == @listing.seller_id %>
-          <tr class = "tr"><%= link_to "Edit Listing", edit_listing_path(@listing.id) %></tr>
+       <%# had to do listing.seller here for create method on heroku? will this still work on local? %>
+          <% if current_user.present? && current_user == @listing.seller %>
+          <tr class = "tr"><%= link_to "Edit Listing", edit_listing_path(@listing) %></tr>
           <tr class = "tr"><%= link_to 'Destroy Listing', @listing, method: :delete, data: { confirm: 'Are you sure?' } %> </tr>
           <% end %>        
         </td>

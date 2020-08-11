@@ -91,8 +91,8 @@
            <td class = "td">
           <tr class = "tr"><%= link_to 'Show Listing', listing %></tr>
 
-          <% if current_user.present? && current_user.id == listing.seller_id %>
-          <tr class = "tr"><%= link_to "Edit Listing", edit_listing_path(listing.id) %></tr>
+          <% if current_user.present? && current_user == listing.seller %>
+          <tr class = "tr"><%= link_to "Edit Listing", edit_listing_path(listing) %></tr>
           <% end %>        
        
           </td>

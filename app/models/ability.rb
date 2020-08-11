@@ -14,7 +14,7 @@ class Ability
         can :show, Listing
       if user.present?
         can [:read, :create], Listing 
-        can [:update, :destroy, :edit, :view], Listing, :seller_id => user.id
+        can [:update, :destroy, :edit, :view], Listing, :seller => user
       end
     end
         #if current_user.user_signed_in? && listing&.seller&.user == listing.seller_id
