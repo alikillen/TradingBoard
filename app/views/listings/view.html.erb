@@ -3,7 +3,7 @@
 <h1>My Listings</h1>
 
 <%# validating so that only listings that user has posted are shown! and then validating if they are logged in %>
-<% @listings = Listing.where(seller_id: current_user.id) %>
+<% @listings = Listing.where(seller: current_user.id) %>
 
 <% @listings.each do |listing| %>
 <% if current_user.present? && current_user == listing.seller %>
