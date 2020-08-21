@@ -3,11 +3,18 @@
   <h1>New Listing</h1>
 
 <%# cancancan for backend authorisation %>
+<%# is cancan causing heroku issues? %>
+
+<%# <% if current_user.present? && current_user == listing.seller %> 
   <% if can? :new, Listing %>
 
     <%= render 'form', listing: @listing %>
     <%= link_to 'Back', listings_path %>
 
   <%end %>
+
+<%# <% else%> 
+<%# <% render plain: "not authorised to create new listing. please login."%> 
+  <%# <% end %> 
 </div>
 
